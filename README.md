@@ -1,4 +1,5 @@
 # Couch Potato API 
+Furniture for the real relaxers.
 
 Course: LUGC COMPUTER SCIENCE, WINTER 2026 - COMP 2068 (JAVASCRIPT FRAMEWORKS)
 Professor: RICH FREEMAN
