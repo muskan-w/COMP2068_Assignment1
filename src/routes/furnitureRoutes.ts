@@ -1,18 +1,19 @@
 // nm import
 import express, { Router } from 'express';
 
-// local file imports 
-// import { getAllFurniture, createFurniture, updateFurniture, deleteGame, createReview } from '..controllers/furnitureController';
+import { getAllFurniture, createFurniture, updateFurniture, deleteFurniture, getFurnitureById } from '../controllers/furnitureController';
 
-// instantiate router to map url requests 
+
+// router to map url requests 
 const router: Router = express.Router(); 
 
-// map to the CRUD functions in the controller
-//router.get('/', getAllFurniture);
-//router.post('/', createFurniture);
-//router.put('/:id', updateFurniture);
-//router.delete('/:id', deleteGame);
-//router.post('/:id/reviews', createReview);
+
+// CRUD routes 
+router.get('/', getAllFurniture);  // GET all furniture items
+router.get('/:id', getFurnitureById); // GET a furniture item by id
+router.post('/', createFurniture); // POST new funriture 
+router.put('/:id', updateFurniture); // PUT update furniture by id
+router.delete('/:id', deleteFurniture); // DELETE furniture by id
 
 // make it public
 export default router;

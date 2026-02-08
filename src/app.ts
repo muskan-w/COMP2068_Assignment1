@@ -6,11 +6,11 @@ import swaggerUi from 'swagger-ui-express';
 import mongoose from 'mongoose';
 
 // controller 
-// fix: import couchesRouter from './routes/furnitureRoutes';
+import furnitureRouter from './routes/furnitureRoutes';
 
 const app: Application = express();
 
-// global config 
+// global configuration
 app.use(bodyParser.json());
 
 // database connection 
@@ -18,10 +18,10 @@ const dbUri = process.env.DB!;
 
 mongoose.connect(dbUri)
 .then(() => { console.log('Connected to MongoDB')})
-.catch((err: Error) => { console.log('Connection Failed: $(err.message}') });
+.catch((err: Error) => { console.log(`Connection Failed: ${err.message}`) });
 
 // url dispatching 
-// fix: app.use('/api/couches', furnitureRoute);
+app.use('/api/furniture', furnitureRouter);
 
 // swagger configuration
 const options = { 
