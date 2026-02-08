@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import mongoose from 'mongoose';
+import rateLimit from 'express-rate-limit'; // rate limiting - see readMe for documentation
 
 // controller 
 import furnitureRouter from './routes/furnitureRoutes';
@@ -46,5 +47,18 @@ app.get('/api-docs', (req: Request, res: Response) => {
     });
     res.send(html);
 });
+
+// rate limiter - check ReadMe for documentation/source code please (www.npmjs.com)
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 100, // limit each IP to 100 requests per windowMs
+    standardHeaders: 'draft-8', 
+    legacyHeaders: false, 
+    ipv6Subnet: 56,
+
+})
+
+app.use(limiter); // apply rate limiter to all requests
 
 app.listen(4000, () => { console.log('Server is running on port 4000')});
