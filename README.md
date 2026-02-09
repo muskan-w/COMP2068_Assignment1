@@ -9,7 +9,7 @@ ASSIGNMENT 1: REST API WITH NODE, EXPRESS, MONGODB, SWAGGER, VERCEL, NODE.JS, EX
 
 Description: Couch Potato is an API for a furniture store! CRUD abilities and database. API documented with Swagger and API deployed on Vercel. 
 
-Swagger URL:
+Swagger URL: https://comp-2068-assignment1-rho.vercel.app/
 
 Additional Sources used: 
 Rate limiting:
