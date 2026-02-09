@@ -4,7 +4,6 @@ interface IReview {
     reviewer: string;
     reviewText: string;
     rating: number; 
-    date: Date;
 } 
 
 interface IFurniture {
@@ -35,10 +34,6 @@ const reviewSchema = new Schema<IReview>({
         required: [true, 'Rating is required'],
         min: 1,
         max: 5
-    },
-    date: {
-        type: Date,
-        default: Date.now
     }
 });
 
