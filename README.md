@@ -14,3 +14,5 @@ Swagger URL:
 Additional Sources used: 
 Rate limiting:
 https://www.npmjs.com/package/express-rate-limit
+Env file configuration: 
+https://www.npmjs.com/package/dotenv

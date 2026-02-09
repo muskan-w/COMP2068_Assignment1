@@ -5,6 +5,8 @@ import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import mongoose from 'mongoose';
 import rateLimit from 'express-rate-limit'; // rate limiting - see readMe for documentation
+import dotenv from 'dotenv'; 
+dotenv.config(); // load environment variables from .env file
 
 // controller 
 import furnitureRouter from './routes/furnitureRoutes';
@@ -14,15 +16,16 @@ const app: Application = express();
 // global configuration
 app.use(bodyParser.json());
 
+// url dispatching 
+app.use('/api/furniture', furnitureRouter);
+
 // database connection 
 const dbUri = process.env.DB!; 
 
 mongoose.connect(dbUri)
-.then(() => { console.log('Connected to MongoDB')})
-.catch((err: Error) => { console.log(`Connection Failed: ${err.message}`) });
+.then(() =>  console.log('Connected to MongoDB'))
+.catch((err: Error) =>  console.log(`Connection Failed: ${err.message}`));
 
-// url dispatching 
-app.use('/api/furniture', furnitureRouter);
 
 // swagger configuration
 const options = { 
