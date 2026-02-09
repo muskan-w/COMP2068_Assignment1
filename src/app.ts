@@ -36,7 +36,7 @@ const options = {
             version: '1.0.0',
     }
 }, 
-    apis: ['./dist/controllers/*.js'] // location of api methods
+    apis: ['./src/controllers/*.ts'] // location of api methods
 };
 
 const openApiSpecs = swaggerJsDoc(options); 
